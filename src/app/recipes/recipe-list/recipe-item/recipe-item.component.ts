@@ -10,11 +10,14 @@ import { Component, Input } from '@angular/core';
 
 export class RecipeItemComponent{
     @Input() recipe: Recipe;
+    @Input() index: number;
 
-    constructor(private recipeSelect: RecipeService){}
 
-    onSelected(){
-        this.recipeSelect.recipeSelected.emit(this.recipe)
-    }
+
+    // constructor(private recipeSelect: RecipeService){}
+
+    // onSelected(){
+    //     this.recipeSelect.recipeSelected.emit(this.recipe)
+    // }
 
 }
