@@ -1,3 +1,4 @@
+import { RecipeResolverService } from './shared/recipe-resolver.service';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RecipesComponent } from './recipes/recipes.component';
@@ -11,8 +12,10 @@ const routes: Routes = [
   {path: 'recipes', component: RecipesComponent, children: [
     {path: '', component: RecipeNewComponent},
     {path: 'new', component: RecipeEditComponent},
-    {path: ':id', component: RecipeDetailComponent},
-    {path: ':id/edit', component: RecipeEditComponent},
+    {path: ':id', component: RecipeDetailComponent, 
+      resolve: [RecipeResolverService]},
+    {path: ':id/edit', component: RecipeEditComponent,
+      resolve: [RecipeResolverService]},
 
   ]},
   {path: 'shopping-list', component: ShoppingListComponent}
